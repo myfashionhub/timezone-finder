@@ -1,0 +1,11 @@
+<%= render 'users/new' %>
+
+<h2>Log in</h2>
+
+<% form_for @session do |f| %>
+  <%= f.label :email %>:
+  <%= f.text_field :email %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.submit 'Create account' %>
+<% end %>
