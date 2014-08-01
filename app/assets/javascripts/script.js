@@ -3,6 +3,6 @@ function showNotice(div) {
     $(div).fadeIn();
     setTimeout(function() {
       $(div).fadeOut();
-    }, 4000);
+    }, 3000);
   }
 }

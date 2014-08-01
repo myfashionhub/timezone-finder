@@ -1,6 +1,14 @@
 function newUser() {
+  console.log('check validation');
   var email = $('#new-user').find('input[type="email"]').val();
   var password = $('#new-user').find('input[type="password"]').val();
+
+  if (validatePassword(password) === true) {
+    createUser(email, password);
+  }
+}
+
+function createUser(email, password) {
   $.ajax({
     url: 'users',
     method: 'post',
@@ -15,5 +23,5 @@ function newUser() {
       showNotice('.error');
       console.log(err)
     }
-  })
+  });
 }
