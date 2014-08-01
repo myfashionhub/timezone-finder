@@ -17,4 +17,30 @@
 body {
   font-family: 'Helvetica';
   font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.notice, .error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: .5em 0 .5em 2em;
+  width: 100%;
+}
+
+.notice {
+  background-color: rgba(100, 149, 237, .5);
+}
+
+.error {
+  background-color: rgba(255, 69, 0, .5);
+}
+
+.content {
+  width: 800px;
+  display: block;
+  margin: 2em auto;
+  padding: 1em;
 }

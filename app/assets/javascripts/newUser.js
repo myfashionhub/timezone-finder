@@ -1,0 +1,19 @@
+function newUser() {
+  var email = $('#new-user').find('input[type="email"]').val();
+  var password = $('#new-user').find('input[type="password"]').val();
+  $.ajax({
+    url: 'users',
+    method: 'post',
+    dataType: 'json',
+    data: { user: { email: email, password: password } },
+    success: function(data) {
+      $('.notice').html('User successfully created. Please log in.');
+      showNotice('.notice');
+    },
+    error: function(err) {
+      $('.error').html($(err.responseText).find('h2').html());
+      showNotice('.error');
+      console.log(err)
+    }
+  })
+}
