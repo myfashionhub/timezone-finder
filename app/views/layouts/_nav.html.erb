@@ -1,10 +1,16 @@
-<ul>
+<ul class='nav'>
   <% if current_user %>
+  <li>
+    <a href='#' id='timezones'>Saved timezones</a>
+  </li>
   <li>
     <a href='#' id='logout'>Log out</a>
   </li>
   <% end %>
   <li>
-    <a href='#' id="login">Log in/Sign up</a>
+    <a href='#' id="login">Log in</a>
+  </li>
+  <li>
+    <a href='#' id="signup">Sign up</a>
   </li>
 </ul>

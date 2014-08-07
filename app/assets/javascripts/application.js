@@ -1,11 +1,14 @@
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 
 $(function() {
   $('.notice').hide();
   $('.error').hide();
+  $('#new-session').hide();
+  $('#new-user').hide();
+
+  navigation();
 
   $('#new-user').submit(function(e) {
     e.preventDefault();
@@ -14,5 +17,5 @@ $(function() {
   //newSession()
 
   $('#logout').click(logout);
-  $('#login').click(loginPage);
+
 });

@@ -19,6 +19,19 @@ function logout() {
   })
 }
 
-function loginPage() {
+function navigation() {
+  $('#login').click(function() {
+    hideContent();
+    $('#new-session').fadeIn();
+  });
 
+  $('#signup').click(function() {
+    hideContent();
+    $('#new-user').fadeIn();
+  });
+}
+
+function hideContent() {
+  var currentContents = $('.content').children();
+  currentContents.hide();
 }
