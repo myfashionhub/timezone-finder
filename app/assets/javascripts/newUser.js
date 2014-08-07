@@ -1,6 +1,5 @@
 function newUser() {
-  console.log('check validation');
-  var email = $('#new-user').find('input[type="email"]').val();
+  var email = $('#new-user').find('input[type="email"]').val().toLowerCase();
   var password = $('#new-user').find('input[type="password"]').val();
 
   if (validatePassword(password) === true) {
