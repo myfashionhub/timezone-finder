@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
       msg = { msg: 'success' }
     elsif user == nil
       msg = { msg: 'User does not exist' }
-
     else
       msg = { msg: 'Log in failed' }
     end
@@ -18,6 +17,8 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    msg = { msg: 'success' }
+    render json: msg.to_json
   end
 
 end

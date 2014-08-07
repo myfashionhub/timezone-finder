@@ -12,4 +12,7 @@ $(function() {
     newUser();
   });
   //newSession()
+
+  $('#logout').click(logout);
+  $('#login').click(loginPage);
 });

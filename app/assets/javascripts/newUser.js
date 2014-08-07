@@ -1,6 +1,8 @@
 function newUser() {
   var email = $('#new-user').find('input[type="email"]').val().toLowerCase();
   var password = $('#new-user').find('input[type="password"]').val();
+  email.val() = '';
+  password.val() = '';
 
   if (validatePassword(password) === true) {
     createUser(email, password);
