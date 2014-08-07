@@ -4,7 +4,7 @@ class CreateTimezones < ActiveRecord::Migration
       t.integer :difference
       t.string :abbreviation
       t.string :name
-      t.string :cities
+      t.text :cities
 
       t.timestamps
     end
@@ -15,4 +15,3 @@ class CreateTimezones < ActiveRecord::Migration
   end
 end
 
-# reference http://www.timeanddate.com/library/abbreviations/timezones/

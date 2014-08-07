@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140806225228) do
     t.integer  "difference"
     t.string   "abbreviation"
     t.string   "name"
-    t.string   "cities"
+    t.text     "cities"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
