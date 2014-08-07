@@ -14,7 +14,10 @@ $(function() {
     e.preventDefault();
     newUser();
   });
-  //newSession()
+
+  $('#new-session').submit(function(e) {
+    newSession();
+  });
 
   $('#logout').click(logout);
 

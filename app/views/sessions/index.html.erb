@@ -2,6 +2,16 @@
 <div class="error"></div>
 
 <%= render 'layouts/nav' %>
+<% if current_user %>
+  <script>
+    loggedinNav();
+  </script>
+<% else %>
+  <script>
+    loggedoutNav();
+  </script>
+<% end %>
+
 
 <div class="content">
   <%= render 'sessions/new' %>

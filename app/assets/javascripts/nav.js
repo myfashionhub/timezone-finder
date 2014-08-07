@@ -15,6 +15,7 @@ function logout() {
       console.log(data);
       $('.notice').html('Successfully logged out.');
       showNotice('.notice');
+      loggedoutNav();
     }
   })
 }
@@ -34,4 +35,20 @@ function navigation() {
 function hideContent() {
   var currentContents = $('.content').children();
   currentContents.hide();
+}
+
+function loggedinNav() {
+  console.log('log in nav');
+  $('#login').hide();
+  $('#signup').hide();
+  $('#logout').show();
+  $('#timezones').show();
+}
+
+function loggedoutNav() {
+  console.log('log out nav');
+  $('#login').show();
+  $('#signup').show();
+  $('#logout').hide();
+  $('#timezones').hide();
 }
