@@ -1,0 +1,18 @@
+<div id="user-show">
+  <h2>Your saved time zones:</h2>
+  <button>Refresh time</button>
+
+  <ul>
+  <% if @entries != nil %>
+  <% @entries.each do |entry| %>
+    <li>
+      <%= entry.name %>
+      <%= entry.city %>
+      <%= entry.difference %>
+      <p>Current time: </p>
+    </li>
+  <% end %>
+  <% end %>
+  </ul>
+
+</div>

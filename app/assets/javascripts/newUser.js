@@ -26,28 +26,3 @@ function createUser(email, password) {
     }
   });
 }
-
-function newSession() {
-  var email = $('#new-session').find('input[type="email"]').val().toLowerCase();
-  var password = $('#new-session').find('input[type="password"]').val();
-  $.ajax({
-    url: 'sessions',
-    method: 'post',
-    dataType: 'json',
-    data: { email: email, password: password },
-    success: function(data) {
-      if (data['msg'] === 'success') {
-        $('.notice').html('You have logged in successfully');
-        showNotice('.notice');
-        loggedinNav();
-      } else {
-        $('.error').html(data['msg']);
-        showNotice('.error');
-        loggedoutNav();
-      }
-    },
-    error: function(err) {
-      console.log(err);
-    }
-  });
-}

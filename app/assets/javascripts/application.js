@@ -5,8 +5,7 @@
 $(function() {
   $('.notice').hide();
   $('.error').hide();
-  $('#new-session').hide();
-  $('#new-user').hide();
+  hideContent();
 
   navigation();
 
