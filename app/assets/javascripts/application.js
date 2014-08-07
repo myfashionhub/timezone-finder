@@ -1,12 +1,10 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require_tree .
 
 $(function() {
-  $('.notice').hide();
-  $('.error').hide();
   hideContent();
-
   navigation();
 
   $('#new-user').submit(function(e) {
@@ -20,4 +18,5 @@ $(function() {
 
   $('#logout').click(logout);
 
+  allTimezones();
 });

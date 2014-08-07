@@ -30,15 +30,21 @@ function navigation() {
     hideContent();
     $('#new-user').fadeIn();
   });
+
+  $('#timezones').click(function() {
+    hideContent();
+    $('#user-show').fadeIn();
+    $('#new-entry').fadeIn();
+  });
 }
 
 function hideContent() {
-  var currentContents = $('.content').children();
-  currentContents.hide();
+  $('.notice').hide();
+  $('.error').hide();
+  $('.content').children().hide();
 }
 
 function loggedinNav() {
-  console.log('log in nav');
   $('#login').hide();
   $('#signup').hide();
   $('#logout').show();
@@ -46,7 +52,6 @@ function loggedinNav() {
 }
 
 function loggedoutNav() {
-  console.log('log out nav');
   $('#login').show();
   $('#signup').show();
   $('#logout').hide();
