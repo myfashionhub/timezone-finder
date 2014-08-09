@@ -64,3 +64,19 @@ a:hover { text-decoration: none; }
 .nav a:hover {
   color: #0045A3;
 }
+
+.entries li {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 10em;
+  margin-right: 2em;
+}
+
+.new-entry {
+}
+#save {
+  float: right;
+}
+#timezone-input, #city-input {
+  width: 12em;
+}

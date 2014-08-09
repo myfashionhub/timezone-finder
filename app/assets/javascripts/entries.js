@@ -11,6 +11,7 @@ function saveEntry() {
       $('.notice').html('Timezone has been saved');
       showNotice('.notice');
       displayEntry(data);
+      showTime();
     },
     error: function(data) {
       $('.error').html('Error saving timezone');
@@ -34,6 +35,7 @@ function displayEntries(data) {
   for (var obj in data) {
     displayEntry(data[obj])
   }
+  setTimeout(showTime, 500);
 }
 
 function displayEntry(obj) {
@@ -42,7 +44,7 @@ function displayEntry(obj) {
   var timezone = $('<p>').html(obj.timezone);
   var difference = $('<p>');
   var diff = obj.difference;
-  var currentTime = $('<p>').html('Current time: ');
+  var currentTime = $('<p>').addClass('time').attr('data', diff).html('Current time: ');
   if (diff === 0) {
     difference.html('GMT');
   } else if (diff > 0) {
