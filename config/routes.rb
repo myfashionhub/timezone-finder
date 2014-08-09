@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'sessions#index'
 
-  resources :users, only: [:create]
+  resources :users, only: [:create, :show]
   resources :sessions, only: [:create]
   delete '/sessions' => 'sessions#destroy'
 

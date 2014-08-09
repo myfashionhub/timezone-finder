@@ -45,26 +45,6 @@ function fetchCities(info) {
   });
 }
 
-function saveTimezone() {
-  var info = $('#timezone-input').val();
-  var timezone = info.replace(info.match(/\s\(.+\)/)[0], '');
-  var city = $('#city-input').val();
-  $.ajax({
-    url: '/entries',
-    method: 'post',
-    dataType: 'json',
-    data: { timezone: timezone, city: city },
-    success: function(data) {
-      $('.notice').html('Timezone has been saved');
-      showNotice('.notice');
-    },
-    error: function(data) {
-      $('.error').html('Error saving timezone');
-      showNotice('.error');
-    }
-  })
-}
-
 function suggestCity(cities) {
   $('#city-input').focus(function() {
     $(this).autocomplete({

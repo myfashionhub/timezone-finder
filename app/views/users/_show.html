@@ -1,18 +1,8 @@
-<div id="user-show">
+<div id="user-show" data="<%= current_user.id %>">
   <h2>Your saved time zones:</h2>
   <button>Refresh time</button>
 
-  <ul>
-  <% if @entries != nil %>
-  <% @entries.each do |entry| %>
-    <li>
-      <%= entry.name %>
-      <%= entry.city %>
-      <%= entry.difference %>
-      <p>Current time: </p>
-    </li>
-  <% end %>
-  <% end %>
+  <ul class='entries'>
   </ul>
 
 </div>
