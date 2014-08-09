@@ -13,6 +13,7 @@ function suggestTimezone(data) {
   var timezones = [];
   for (var key in data) {
     var difference;
+    //var id = data[key].id;
     if (data[key].difference === 0) {
       difference = '';
     } else if (data[key].difference > 0) {
@@ -26,32 +27,43 @@ function suggestTimezone(data) {
     source: timezones,
     minLength: 1,
     select: function(event, ui) {
-
+      fetchCities(ui.item.value);
     }
-  });
-
-  $('#city-input').focus(function() {
-    var cities = [];
-    this.autocomplete({
-      source: cities
-    })
   });
 }
 
-function fetchCities() {
-  var selected = ui.value;
-  var info = $('#timezone-input').val();
-  var difference;
-  if (info.match(/\+?-?\d/) == null) {
-    difference = 0;
-  } else {
-    difference = parseInt(info.match(/\+?-?\d/)[0]);
-  }
-  var timezone = info.replace(info.match(/\s\(.+\)/)[0], '');
-  console.log(selected);
+function fetchCities(info) {
+  var timezone = info.slice(0, info.match(/\(/).index - 1);
+  console.log(timezone);
+  $.ajax({
+    url: '/timezones/search',
+    method: 'post',
+    dataType: 'json',
+    data: { name: timezone },
+    success: function(data) {
+      suggestCity(data);
+    }
+  });
 }
 
 function saveTimezone() {
-
+  var info = $('#timezone-input').val();
+  var timezone = info.replace(info.match(/\s\(.+\)/)[0], '');
   var city = $('#city-input').val();
+  $.ajax({
+    url: '/entries',
+    method: 'post',
+    dataType: 'json',
+    data: { timezone: timezone, city: city },
+    success: function(data) { console.log(data) }
+  })
+}
+
+function suggestCity(cities) {
+  $('#city-input').focus(function() {
+    $(this).autocomplete({
+      source: cities,
+      minLength: 0
+    });
+  });
 }

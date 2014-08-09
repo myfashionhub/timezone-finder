@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   delete '/sessions' => 'sessions#destroy'
 
   resources :timezones, only: [:index]
+  post '/timezones/search' => 'timezones#search'
   resources :entries, only: [:create, :update, :destroy]
 end
