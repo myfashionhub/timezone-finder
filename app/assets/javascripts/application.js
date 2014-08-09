@@ -19,4 +19,5 @@ $(function() {
   $('#logout').click(logout);
 
   allTimezones();
+  $('#save').click(saveTimezone);
 });

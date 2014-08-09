@@ -1,9 +1,28 @@
 <div id="new-entry">
   <h3>Add new timezone</h3>
+  <table>
+  <tr>
+    <td>
+      <label for="">Enter name of timezone or difference to GMT:</label>
+    </td>
+    <td>
+      <input type="text" id='timezone-input' placeholder='Ex: -3 or Brasilia'>
+    </td>
+  </tr>
 
-  <input type="text" placeholder='Entry name'></input>
-  <input type="text" id='timezone-input' placeholder='Enter timezone'>
-  <input type="text" id='city-input' placeholder='Enter city'>
+  <tr>
+    <td>
+      <label for="">Name of city</label>
+    </td>
+    <td>
+      <input type="text" id='city-input' placeholder='City name'></input>
+    </td>
+  </tr>
 
-  <button id='save'>Save entry</button>
+  <tr>
+    <td colspan='2'>
+      <button id='save'>Save entry</button>
+    </td>
+  </tr>
+  </table>
 </div>
