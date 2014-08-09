@@ -21,4 +21,5 @@ $(function() {
   allTimezones();
   $('#save').click(saveEntry);
   showEntries();
+
 });

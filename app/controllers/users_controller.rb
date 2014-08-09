@@ -5,7 +5,8 @@ class UsersController < ApplicationController
       timezone = Timezone.find(entry.timezone_id)
       { city: entry.city,
         timezone: timezone.name,
-        difference: timezone.difference
+        difference: timezone.difference,
+        entry_id: entry.id
       }
     end
     render json: display.to_json

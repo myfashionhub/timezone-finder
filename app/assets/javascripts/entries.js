@@ -10,6 +10,7 @@ function saveEntry() {
     success: function(data) {
       $('.notice').html('Timezone has been saved');
       showNotice('.notice');
+      displayEntry(data);
     },
     error: function(data) {
       $('.error').html('Error saving timezone');
@@ -24,28 +25,52 @@ function showEntries() {
     url: '/users/'+user_id,
     method: 'get',
     dataType: 'json',
-    success: function(data) {
-      displayEntries(data);
-    }
-  })
+    success: displayEntries
+  });
 }
 
 function displayEntries(data) {
+  $('.entries').empty();
   for (var obj in data) {
-    var entry = $('<li>');
-    var city = $('<h4>').html(data[obj].city);
-    var timezone = $('<p>').html(data[obj].timezone);
-    var difference = $('<p>');
-    var diff = data[obj].difference;
-    var currentTime = $('<p>').html('Current time: ');
-    if (diff === 0) {
-      difference.html('GMT');
-    } else if (diff > 0) {
-      difference.html('GMT +'+diff);
-    } else {
-      difference.html('GMT '+diff);
-    }
-    entry.append(city).append(timezone).append(difference).append(currentTime);
-    $('.entries').append(entry).hide().slideDown();
+    displayEntry(data[obj])
   }
+}
+
+function displayEntry(obj) {
+  var entry = $('<li>').attr('data', obj.entry_id);
+  var city = $('<h4>').html(obj.city);
+  var timezone = $('<p>').html(obj.timezone);
+  var difference = $('<p>');
+  var diff = obj.difference;
+  var currentTime = $('<p>').html('Current time: ');
+  if (diff === 0) {
+    difference.html('GMT');
+  } else if (diff > 0) {
+    difference.html('GMT +'+diff);
+  } else {
+    difference.html('GMT '+diff);
+  }
+  var remove = $('<button>').addClass('delete').html('Remove');
+  entry.append(city).append(timezone).append(difference).append(currentTime).append(remove);
+  $('.entries').append(entry).hide().slideDown();
+  $('.delete').click(removeEntry);
+}
+
+function removeEntry(e) {
+  var entry = $(e.target).parent();
+  var entry_id = entry.attr('data');
+  entry.slideUp().remove();
+  $.ajax({
+    url: '/entries/'+entry_id,
+    method: 'delete',
+    dataType: 'json',
+    success: function(data) {
+      $('.notice').html('Entry has been deleted');
+      showNotice('.notice');
+    },
+    error: function(data) {
+      $('.error').html('Unsuccessful deletion');
+      showNotice('.error');
+    }
+  });
 }
