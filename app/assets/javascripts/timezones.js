@@ -34,7 +34,6 @@ function suggestTimezone(data) {
 
 function fetchCities(info) {
   var timezone = info.slice(0, info.match(/\(/).index - 1);
-  console.log(timezone);
   $.ajax({
     url: '/timezones/search',
     method: 'post',
@@ -55,7 +54,14 @@ function saveTimezone() {
     method: 'post',
     dataType: 'json',
     data: { timezone: timezone, city: city },
-    success: function(data) { console.log(data) }
+    success: function(data) {
+      $('.notice').html('Timezone has been saved');
+      showNotice('.notice');
+    },
+    error: function(data) {
+      $('.error').html('Error saving timezone');
+      showNotice('.error');
+    }
   })
 }
 
