@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20140806225228) do
   enable_extension "plpgsql"
 
   create_table "entries", force: true do |t|
-    t.string   "name"
     t.string   "city"
-    t.integer  "difference"
+    t.integer  "user_id"
+    t.integer  "timezone_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
