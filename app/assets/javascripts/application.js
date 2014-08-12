@@ -22,7 +22,7 @@ $(function() {
 
   allTimezones();
   $('#save').click(saveEntry);
-  showEntries();
+
 
   $('#refresh-time').click(showTime);
 });

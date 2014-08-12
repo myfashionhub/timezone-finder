@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
   def index
+    respond_to do |format|
+      format.html
+      format.json { render json: { id: current_user.id }.to_json }
+    end
   end
 
   def create

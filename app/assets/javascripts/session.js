@@ -15,7 +15,6 @@ function newSession() {
 
 function loginSuccess(data) {
   location.hash = '#timezones';
-  $('.content').append("<%= render 'users/show' %>");
   if (data['msg'] === 'success') {
     $('.notice').html('You have logged in successfully');
     showNotice('.notice');
@@ -23,6 +22,17 @@ function loginSuccess(data) {
     hideContent();
     $('#user-show').fadeIn();
     $('#new-entry').fadeIn();
+    $.ajax({
+      url: 'sessions',
+      method: 'get',
+      dataType: 'json',
+      success: function(data) {
+        var user_id = data.id;
+        $('#user-show').attr('data', user_id);
+        showEntries();
+      }
+    });
+
   } else {
     $('.error').html(data['msg']);
     showNotice('.error');
@@ -40,7 +50,8 @@ function logout() {
       $('.notice').html('Successfully logged out.');
       showNotice('.notice');
       loggedoutNav();
-      $('.content').empty();
+      location.hash = '';
+      $('.content').children().hide();
       $('#new-session').fadeIn();
     }
   })
