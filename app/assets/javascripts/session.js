@@ -23,8 +23,8 @@ function loginSuccess(data) {
     $('#user-show').fadeIn();
     $('#new-entry').fadeIn();
     currentUser();
-
   } else {
+    console.log('not successful log in');
     $('.error').html(data['msg']);
     showNotice('.error');
     loggedoutNav();

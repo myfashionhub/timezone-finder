@@ -15,6 +15,7 @@ $(function() {
   });
 
   $('#new-session').submit(function(e) {
+    e.preventDefault();
     newSession();
   });
 
