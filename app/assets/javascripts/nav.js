@@ -7,18 +7,6 @@ function showNotice(div) {
   }
 }
 
-function logout() {
-  $.ajax({
-    url: '/sessions',
-    method: 'delete',
-    success: function(data) {
-      console.log(data);
-      $('.notice').html('Successfully logged out.');
-      showNotice('.notice');
-      loggedoutNav();
-    }
-  })
-}
 
 function navigation() {
   $('#login').click(function() {

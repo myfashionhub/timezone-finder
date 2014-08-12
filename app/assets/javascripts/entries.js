@@ -2,6 +2,8 @@ function saveEntry() {
   var info = $('#timezone-input').val();
   var timezone = info.replace(info.match(/\s\(.+\)/)[0], '');
   var city = $('#city-input').val();
+  $('#new-entry').find('input').val('');
+
   $.ajax({
     url: '/entries',
     method: 'post',

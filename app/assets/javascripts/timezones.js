@@ -13,7 +13,6 @@ function suggestTimezone(data) {
   var timezones = [];
   for (var key in data) {
     var difference;
-    //var id = data[key].id;
     if (data[key].difference === 0) {
       difference = '';
     } else if (data[key].difference > 0) {

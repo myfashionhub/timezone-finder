@@ -3,6 +3,8 @@
 //= require jquery.ui.all
 //= require_tree .
 
+$(window).load(currentTab);
+
 $(function() {
   hideContent();
   navigation();

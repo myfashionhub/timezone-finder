@@ -14,6 +14,7 @@ function newSession() {
 }
 
 function loginSuccess(data) {
+  location.hash = '#timezones';
   if (data['msg'] === 'success') {
     $('.notice').html('You have logged in successfully');
     showNotice('.notice');
@@ -25,5 +26,33 @@ function loginSuccess(data) {
     $('.error').html(data['msg']);
     showNotice('.error');
     loggedoutNav();
+  }
+}
+
+
+function logout() {
+  $.ajax({
+    url: '/sessions',
+    method: 'delete',
+    success: function(data) {
+      console.log(data);
+      $('.notice').html('Successfully logged out.');
+      showNotice('.notice');
+      loggedoutNav();
+      $('.content').empty();
+      $('#new-session').fadeIn();
+    }
+  })
+}
+
+
+function currentTab() {
+  if (location.hash === '#timezones') {
+    $('#user-show').show();
+    $('#new-entry').show();
+  } else if (location.hash === '#signup') {
+    $('#new-user').show();
+  }  else {
+    $('#new-session').show();
   }
 }

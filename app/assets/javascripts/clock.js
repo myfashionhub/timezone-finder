@@ -1,6 +1,5 @@
 function showTime() {
   var hourUtc = new Date().getUTCHours();
-  console.log(typeof(hourUtc));
   var minute = new Date().getMinutes();
   var second = new Date().getSeconds();
   var times = $('.time');

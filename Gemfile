@@ -14,7 +14,6 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   gem 'pry'
   gem 'pry-nav'
-  gem 'debugger'
   gem 'rspec-rails'
 end
 
