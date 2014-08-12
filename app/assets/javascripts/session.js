@@ -22,22 +22,31 @@ function loginSuccess(data) {
     hideContent();
     $('#user-show').fadeIn();
     $('#new-entry').fadeIn();
-    $.ajax({
-      url: 'sessions',
-      method: 'get',
-      dataType: 'json',
-      success: function(data) {
-        var user_id = data.id;
-        $('#user-show').attr('data', user_id);
-        showEntries();
-      }
-    });
+    currentUser();
 
   } else {
     $('.error').html(data['msg']);
     showNotice('.error');
     loggedoutNav();
   }
+}
+
+function currentUser() {
+  $.ajax({
+    url: 'sessions',
+    method: 'get',
+    dataType: 'json',
+    success: function(data) {
+      var user_id = data.id;
+      $('#user-show').attr('data', user_id);
+      showEntries();
+    },
+    error: function(data) {
+      $('.error').html('Session timeout.');
+      showNotice('.error');
+      logoutState();
+    }
+  });
 }
 
 
@@ -49,18 +58,23 @@ function logout() {
       console.log(data);
       $('.notice').html('Successfully logged out.');
       showNotice('.notice');
-      loggedoutNav();
-      location.hash = '';
-      $('.content').children().hide();
-      $('#new-session').fadeIn();
+      logoutState();
     }
   })
 }
 
 
+function logoutState() {
+  location.hash = '';
+  loggedoutNav();
+  $('.content').children().hide();
+  $('#new-session').fadeIn();
+}
+
 function currentTab() {
   if (location.hash === '#timezones') {
     $('#user-show').show();
+    currentUser();
     $('#new-entry').show();
   } else if (location.hash === '#signup') {
     $('#new-user').show();
