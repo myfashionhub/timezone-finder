@@ -24,4 +24,5 @@ $(function() {
   $('#save').click(saveEntry);
   showEntries();
 
+  $('#refresh-time').click(showTime);
 });

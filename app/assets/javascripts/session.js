@@ -15,6 +15,7 @@ function newSession() {
 
 function loginSuccess(data) {
   location.hash = '#timezones';
+  $('.content').append("<%= render 'users/show' %>");
   if (data['msg'] === 'success') {
     $('.notice').html('You have logged in successfully');
     showNotice('.notice');

@@ -11,7 +11,7 @@ function showTime() {
   }
   for (var i = 0; i < times.length; i++) {
     var timeEl = times[i];
-    console.log(timeEl);
+    $(timeEl).empty();
     var difference = parseInt($(timeEl).attr('data'));
     var hour = (hourUtc + difference) % 24;
     $(timeEl).append(hour + ':' + minute + ':' + second);

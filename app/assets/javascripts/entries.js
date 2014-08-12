@@ -46,7 +46,9 @@ function displayEntry(obj) {
   var timezone = $('<p>').html(obj.timezone);
   var difference = $('<p>');
   var diff = obj.difference;
-  var currentTime = $('<p>').addClass('time').attr('data', diff).html('Current time: ');
+  var currentTime = $('<p>').html('Current time: ');
+  var time = $('<span>').addClass('time').attr('data', diff);
+  currentTime.append(time);
   if (diff === 0) {
     difference.html('GMT');
   } else if (diff > 0) {

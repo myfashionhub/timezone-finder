@@ -19,7 +19,9 @@
 
   <%= render 'users/new' %>
 
+  <% if current_user %>
   <%= render 'users/show' %>
+  <% end %>
 
   <%= render 'entries/new' %>
 
