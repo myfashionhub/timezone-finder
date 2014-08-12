@@ -82,3 +82,9 @@ function currentTab() {
     $('#new-session').show();
   }
 }
+
+function checkSession() {
+  $('.error').html('Session timeout.');
+  showNotice('.error');
+  logoutState();
+}

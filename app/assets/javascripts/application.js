@@ -23,6 +23,10 @@ $(function() {
   allTimezones();
   $('#save').click(saveEntry);
 
-
   $('#refresh-time').click(showTime);
+
+  setTimeout(function() {
+    checkSession();
+    console.log('session alive?');
+  }, 120000);
 });

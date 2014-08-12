@@ -22,6 +22,7 @@ function navigation() {
   $('#timezones').click(function() {
     hideContent();
     $('#user-show').fadeIn();
+    currentUser();
     $('#new-entry').fadeIn();
   });
 }
