@@ -1,0 +1,24 @@
+@import 'mixins';
+
+form {
+  width: 250px;
+}
+
+#new-session, #new-user {
+  margin: 2em auto;
+
+  input {
+    @include form-input;
+  }
+
+  h2 {
+    color: rgb(44, 62, 80);
+    font-size: 2em;
+  }
+
+  button {
+    float: right;
+    margin: 1em 0;
+    @include button-style;
+  }
+}

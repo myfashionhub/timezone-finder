@@ -86,4 +86,5 @@ function checkSession() {
   $('.error').html('Session timeout.');
   showNotice('.error');
   logoutState();
+  location.reload();
 }

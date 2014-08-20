@@ -9,6 +9,7 @@ body {
   font-size: 16px;
   margin: 0;
   padding: 0;
+  background: url('/assets/geometry.png');
 }
 
 .notice, .error {
@@ -38,45 +39,17 @@ body {
 a {
   text-decoration: none;
   outline: none;
-}
-a:hover { text-decoration: none; }
-
-.nav {
-  margin: 0;
-  padding: .6em;
-  width: 100%;
-  list-style-type: none;
-  text-align: right;
-  background-color: #EBE8E8;
-  position: fixed;
-  top: 0;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
-.nav li {
-  display: inline;
-  margin-right: 2em;
+h1, h2, h3, h4, h5 {
+  font-family: 'Montserrat';
 }
 
-.nav a {
-  color: #0071E3;
-}
-
-.nav a:hover {
-  color: #0045A3;
-}
-
-.entries li {
-  display: inline-block;
-  vertical-align: top;
-  max-width: 10em;
-  margin-right: 2em;
-}
-
-.new-entry {
-}
-#save {
-  float: right;
-}
-#timezone-input, #city-input {
-  width: 12em;
+@media only screen and (max-width: 800px) {
+  .content {
+    width: 100%;
+  }
 }

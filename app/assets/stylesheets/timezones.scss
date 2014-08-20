@@ -1,0 +1,54 @@
+@import 'mixins';
+
+.entries {
+  padding: 0 1em 0 0;
+  li {
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+    max-width: 15em;
+    box-sizing: border-box;
+    overflow: auto;
+    padding: 1em;
+    h4 { margin: 0 0 .6em 0; }
+  }
+
+  button {
+    @include button-link;
+  }
+}
+
+#new-entry {
+  width: 75%;
+  min-width: 400px;
+  margin: 0 auto;
+
+  input {
+    @include form-input;
+  }
+
+  #save {
+    float: right;
+    @include button-style;
+  }
+}
+
+#refresh-time {
+  margin: 0 1em 0 0;
+  @include button-style;
+}
+
+
+@media only screen and (max-width: 795px) {
+  .entries li {
+    width: 15em;
+  }
+}
+
+
+@media only screen and (max-width: 520px) {
+  .entries {
+    width: 15em;
+    margin: 0 auto;
+  }
+}

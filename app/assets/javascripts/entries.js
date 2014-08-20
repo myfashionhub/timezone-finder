@@ -40,6 +40,7 @@ function displayEntries(data) {
   setTimeout(showTime, 500);
 }
 
+
 function displayEntry(obj) {
   var entry = $('<li>').attr('data', obj.entry_id);
   var city = $('<h4>').html(obj.city);
