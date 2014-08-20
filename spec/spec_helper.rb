@@ -15,8 +15,6 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.include Capybara::DSL
-
-
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -39,12 +37,6 @@ end
 
 
 Capybara.configure do |config|
-  config.match = :one
-  config.exact_options = true
-  config.ignore_hidden_elements = true
-  config.visible_text_only = true
-  config.match = :prefer_exact
-  config.ignore_hidden_elements = false
 end
 
 Capybara.default_driver = :selenium

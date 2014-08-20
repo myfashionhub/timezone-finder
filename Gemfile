@@ -16,7 +16,8 @@ group :development, :test do
   gem 'pry'
   gem 'pry-nav'
   gem 'rspec-rails'
-  gem 'capybara'
+  gem 'capybara', git: 'git://github.com/jnicklas/capybara.git'
+  gem 'selenium-webdriver'
 end
 
 gem 'jquery-ui-rails'

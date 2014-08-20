@@ -29,5 +29,5 @@ $(function() {
   setTimeout(function() {
     checkSession();
     console.log('session alive?');
-  }, 120000);
+  }, 150000);
 });
