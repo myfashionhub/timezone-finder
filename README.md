@@ -2,6 +2,8 @@
 
 A one-page application using a REST API to let users enter and save time zones.
 
+[View live demo](http://timezone-finder.herokuapp.com/). Log in with: user@test.com/timezone.
+ 
 ## How it works
 Users can create an account with an email and password. When logged in, they can add new timezone and see the current time of each timezones that have been saved.
 
